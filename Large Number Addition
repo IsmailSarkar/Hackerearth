@@ -1,0 +1,74 @@
+/************
+
+@author Ismail Sarkar.
+Code from Hacker Earth Practice Session.
+
+************/
+
+import java.util.*;
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        String num1,num2,sum2="-1";
+        Scanner scn=new Scanner(System.in);
+		while(true){
+		    try{
+        		num1=scn.next();
+        		num2=scn.next();
+		    }
+		    catch (Exception e){
+		        break;
+		    }
+    		int c=0,i;
+    		char sum[]=new char[1];
+    		char str1[]=num1.toCharArray();
+    		char str2[]=num2.toCharArray();
+        
+        //If first number is larger..
+        
+    		if(num1.length()>num2.length()){
+    		    sum=new char[num1.length()+1];
+    		    int len=num2.length()-1;
+    		    for(i=num1.length()-1;i>=0;i--){
+    		        int number1=str1[i]-48; //Character to number conversion.
+    		        int number2=0;
+    		        if(len>=0){
+    		            number2=str2[len]-48; //Character to number conversion.
+    		            len--;
+    		        }
+    		        int total=number1+number2+c;
+    		        c=total/10;
+    		        total%=10;
+    		        sum[i+1]=(char)(48+total); //Number to Character
+    		    }
+    		    if(c!=0){
+    		        sum[i+1]=1+48;
+    		    }
+    		}
+        //if second one larger or both are equal.
+    		else{
+    		    sum=new char[num2.length()+1];
+    		    int len=num1.length()-1;
+    		    for(i=num2.length()-1;i>=0;i--){
+    		        int number2=str2[i]-48; //Character to number conversion.
+    		        int number1=0;
+    		        if(len>=0){
+    		            number1=str1[len]-48; //Character to number conversion.
+    		            len--;
+    		        }
+    		        int total=number1+number2+c;
+    		        c=total/10;
+    		        total%=10;
+    		        sum[i+1]=(char)(48+total); //Number to Character
+    		        
+    		    }
+    		    if(c!=0){
+    		        sum[i+1]=1+48;
+    		    }
+    		}
+    		sum2=new String(sum);
+    		System.out.println(sum2.trim());
+		}
+    }
+}
+
