@@ -1,0 +1,35 @@
+/* 
+code-> to sort words in lexico graphics order. Problem from Techgig
+@author Ismail Sarkar.
+Written in c language.
+*/
+#include <stdio.h>
+#include<string.h>
+int main()
+{
+  int t;
+	scanf("%d",&t);
+	char c[t][1000];
+	char temp[1000];
+	for(int i=0;i<t;i++){
+		scanf("%s",c[i]);
+	}
+	for(int i=1;i<=t;i++){
+		for(int j=0;j<t-i;j++){
+			int r=strcmp(c[j],c[j+1]);
+			if(r>0){
+				sprintf(temp,"%s",c[j]);
+				sprintf(c[j],"%s",c[j+1]);
+				sprintf(c[j+1],"%s",temp);
+			}
+		}
+	}
+
+	for(int i=0;i<t;i++){
+		printf("%s",c[i]);
+		printf("\n");
+	}
+
+    return 0;
+}
+       
